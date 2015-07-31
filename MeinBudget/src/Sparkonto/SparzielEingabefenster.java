@@ -122,7 +122,7 @@ public class SparzielEingabefenster extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Kategorien frame = new Kategorien();
+							KategorienFenster frame = new KategorienFenster();
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();
