@@ -114,7 +114,7 @@ public class Transaktionsliste extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Start frame = new Start(Start.id);
+							Start frame = new Start();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

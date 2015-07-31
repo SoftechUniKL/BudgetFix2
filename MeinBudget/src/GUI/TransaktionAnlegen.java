@@ -227,7 +227,7 @@ public class TransaktionAnlegen extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Wiederholung frame = new Wiederholung(Start.id);
+							Wiederholung frame = new Wiederholung();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

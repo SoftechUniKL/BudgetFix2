@@ -240,7 +240,7 @@ public class AnmeldenFenster extends JFrame {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try {
-									Start frame = new Start(id);
+									Start frame = new Start();
 									frame.setVisible(true);
 								} catch (Exception e) {
 									e.printStackTrace();

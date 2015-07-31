@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class DropboxCon {
 	public static void main(String[] args) {
-		try {
+		/*try {
 			DbxAppInfo appInfo = new DbxAppInfo("rhgubiix1gpndk4",
 					"s43r8gxhp7bnjyg");
 			DbxRequestConfig config = new DbxRequestConfig("BudgetFix", Locale
@@ -38,7 +38,7 @@ public class DropboxCon {
 	}
 }
 
-/*
+
  * throws IOException, DbxException { // Get your app key and secret from the
  * Dropbox developers website. final String APP_KEY = "INSERT_APP_KEY"; final
  * String APP_SECRET = "INSERT_APP_SECRET";
@@ -77,5 +77,6 @@ public class DropboxCon {
  * FileOutputStream outputStream = new FileOutputStream("magnum-opus.txt"); try
  * { DbxEntry.File downloadedFile = client.getFile("/magnum-opus.txt", null,
  * outputStream); System.out.println("Metadata: " + downloadedFile.toString());
- * } finally { outputStream.close(); } } }
  */
+	}
+}

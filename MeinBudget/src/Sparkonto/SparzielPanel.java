@@ -1,22 +1,28 @@
 package Sparkonto;
 
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.ImageObserver;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
 
 
 public class SparzielPanel extends JPanel {
 	
-	Connection connect = null;
+		Connection connect = null;
 	
 	//Eigenschaften der Klasse
 		String _name;
@@ -36,15 +42,15 @@ public class SparzielPanel extends JPanel {
 		this._eingezahlt= eingezahlt;
 				
 		JLabel LblName = new JLabel(_name);
-		LblName.setBounds(10, 40, 102, 33);
+		LblName.setBounds(0, 40, 110, 33);
 		this.add(LblName);
 		
 		JLabel LblKategorie = new JLabel(_kategorie);
-		LblKategorie.setBounds(124, 40, 114, 33);
+		LblKategorie.setBounds(120, 40, 110, 33);
 		this.add(LblKategorie);
 		
 		JLabel LblWert = new JLabel(Float.toString(sparziel));
-		LblWert.setBounds(235, 40, 114, 33);
+		LblWert.setBounds(240, 40, 110, 33);
 		this.add(LblWert);
 		
 		JButton BtnLoeschen = new JButton("X");
@@ -62,11 +68,30 @@ public class SparzielPanel extends JPanel {
 		JProgressBar progressBar = new JProgressBar();
 		
 		progressBar.setValue((int)((float)_eingezahlt/_sparziel * 100));
-		progressBar.setBounds(333, 40, 208, 33);
+		progressBar.setBounds(333, 40, 100, 33);
 		this.add(progressBar);
 		
 		JButton BtnEinzahlen = new JButton("+");
-		BtnEinzahlen.setBounds(570, 44, 41, 25);
+		BtnEinzahlen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							EinzahlungFenster frame = new EinzahlungFenster();
+							frame.setVisible(true);
+							
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
+			}				
+				
+		});
+		
+		BtnEinzahlen.setBounds(450, 44, 41, 25);
 		this.add(BtnEinzahlen);
 	}
 	
@@ -79,7 +104,7 @@ public class SparzielPanel extends JPanel {
 			int reply = JOptionPane.showConfirmDialog(
 		            null,
 		            "Möchten Sie das Sparziel wirklich löschen?", 
-		            "Bestätigen",
+		            "Bestätigung",
 		            JOptionPane.YES_NO_OPTION);
 
 		        

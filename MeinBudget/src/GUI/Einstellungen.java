@@ -47,7 +47,7 @@ public class Einstellungen extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Einstellungen frame = new Einstellungen(id);
+					Einstellungen frame = new Einstellungen();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,7 +59,7 @@ public class Einstellungen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Einstellungen(int id) {
+	public Einstellungen() {
 
 		this.id = id;
 		// Verbindung zur BPDatenbank - Erträge und Aufwendungen
@@ -134,7 +134,7 @@ public class Einstellungen extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Start frame = new Start(Start.id);
+							Start frame = new Start();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -179,7 +179,7 @@ public class Einstellungen extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Wiederholung frame = new Wiederholung(Start.id);
+							Wiederholung frame = new Wiederholung();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -224,7 +224,7 @@ public class Einstellungen extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Charts frame = new Charts(Start.id);
+							Charts frame = new Charts();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -314,7 +314,7 @@ public class Einstellungen extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Tools frame = new Tools(Tools.id);
+							Tools frame = new Tools();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

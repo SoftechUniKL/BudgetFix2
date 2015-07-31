@@ -189,7 +189,7 @@ public class KategorieAnlegen extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Start frame = new Start(Start.id);
+							Start frame = new Start();
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -433,8 +433,8 @@ public class KategorieAnlegen extends JFrame {
 							//pst.setString(2, selected);
 							
 							// Icon
-							String ausgewaelteKategorie = cboAuswahl.getSelectedItem().getResource().toString();
-							pst.setString(3, ausgewaelteKategorie);
+							//String ausgewaelteKategorie = cboAuswahl.getSelectedItem().getResource().toString();
+							//pst.setString(3, ausgewaelteKategorie);
 							
 						} catch (SQLException e1) {
 							e1.printStackTrace();
