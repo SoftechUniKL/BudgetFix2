@@ -200,6 +200,9 @@ public class SparzielEingabefenster extends JFrame {
 				setUndecorated(true);
 				setLocationRelativeTo(null);
 	}
+	
+	//Anlegen eines Sparziels in der SQL-Tabelle
+	
 	public void anlegenSparziel() {
 		
 		try{		

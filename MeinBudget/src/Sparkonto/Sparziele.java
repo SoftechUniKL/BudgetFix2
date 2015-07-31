@@ -13,6 +13,7 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
@@ -31,6 +32,7 @@ import GUI.Start;
 import GUI.Tools;
 import GUI.Wiederholung;
 import Registrierung.RegisterFenster;
+
 import java.awt.Panel;
 
 public class Sparziele extends JFrame {
@@ -121,7 +123,7 @@ public class Sparziele extends JFrame {
 //btnStart		
 		JLabel btnStart = new JLabel();
 		btnStart.addMouseListener(new MouseAdapter() {
-			@Override
+			/*@Override
 			//Start öffnet sich					
 			public void mouseClicked(MouseEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -135,7 +137,7 @@ public class Sparziele extends JFrame {
 						}
 					}
 				});
-			}
+			}*/
 			//Start-Icon wird blau bei drübergehen der Maus
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -182,7 +184,7 @@ public class Sparziele extends JFrame {
 //Button Wiederholung		
 		JLabel btnWiederholung = new JLabel();
 		btnWiederholung.addMouseListener(new MouseAdapter() {
-			@Override
+			/*@Override
 			//Wiederholung öffnet sich	Bild			
 			public void mouseClicked(MouseEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -196,7 +198,7 @@ public class Sparziele extends JFrame {
 						}
 					}
 				});
-			}
+			}*/
 			//Wiederholung-Icon ist blau bei drübergehen der Maus
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
@@ -222,7 +224,7 @@ public class Sparziele extends JFrame {
 //Button Charts		
 		JLabel btnCharts = new JLabel();
 		btnCharts.addMouseListener(new MouseAdapter() {
-			@Override
+			/*@Override
 			//Charts öffnet sich
 			public void mouseClicked(MouseEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -236,7 +238,7 @@ public class Sparziele extends JFrame {
 						}
 					}
 				});
-			}					
+			}*/					
 			//Charts-Icon wird blau bei drübergehen der Maus
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -275,7 +277,7 @@ public class Sparziele extends JFrame {
 //Button Tools		
 		JLabel btnTools = new JLabel();
 		btnTools.addMouseListener(new MouseAdapter() {
-			@Override
+		/*	@Override
 			//Tools öffnet sich	Bild			
 			public void mouseClicked(MouseEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -289,7 +291,7 @@ public class Sparziele extends JFrame {
 						}
 					}
 				});
-			}
+			}*/
 			//Tools-Icon wird blau bei drübergehen der Maus
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -309,6 +311,7 @@ public class Sparziele extends JFrame {
 		btnAktualisieren.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				getContentPane().removeAll();
 				Auslesen();
 				repaint();
 				
@@ -327,7 +330,7 @@ public class Sparziele extends JFrame {
 //Button Einstellungen		
 		JLabel btnEinstellungen = new JLabel();
 		btnEinstellungen.addMouseListener(new MouseAdapter() {
-			@Override
+			/*@Override
 			//Einstellungen öffnet sich	Bild			
 			public void mouseClicked(MouseEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -341,7 +344,7 @@ public class Sparziele extends JFrame {
 						}
 					}
 				});
-			}
+			}*/
 			//Einstellungen-Icon wird blau bei drübergehen der Maus			
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -391,34 +394,14 @@ public class Sparziele extends JFrame {
 
 	}
 	
-	//Anlegen des Sparziels in der SQL-Tabelle
-		public void loeschenSparziel() {
-					
-			try{		
-					String sqlQuery = "INSERT INTO Sparkonto (Bezeichnung,Kategorie,Sparziel) VALUES(?,?,?)";
-					PreparedStatement stm = connect.prepareStatement(sqlQuery);
-					
-					//ResultSet result = stm.executeQuery();
-					stm.execute();
-				
-					Sparkonto.Sparziele frame = new Sparziele();
-					frame.setVisible(true);	
-					
-					dispose();
-					
-		} catch(Exception exc){
-			exc.printStackTrace();
-		}
-	}
+		
 		
 
 		public void Auslesen() {
-
-			/*String Name, Kategorie;
-			int ID, Sparziel, Eingezahlt;*/
 			
 			try {
-
+				
+				
 				String sqlQuery = "select * from Sparkonto";
 				
 				Statement stm = connect.createStatement();
@@ -435,6 +418,7 @@ public class Sparziele extends JFrame {
 								rs.getInt("Sparziel"),
 								rs.getInt("Eingezahlt"),
 								top, left);
+						
 						contentPane.add(newgui);
 						repaint();
 					}
@@ -454,6 +438,7 @@ public class Sparziele extends JFrame {
 			// setUndecorated(true);
 		
 
-		}
+		
 	}
+}
 

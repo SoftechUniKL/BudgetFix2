@@ -1,11 +1,23 @@
 package Sparkonto;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+
 public class SparzielPanel extends JPanel {
+	
+	Connection connect = null;
+	
 	//Eigenschaften der Klasse
 		String _name;
 		String _kategorie;
@@ -36,6 +48,14 @@ public class SparzielPanel extends JPanel {
 		this.add(LblWert);
 		
 		JButton BtnLoeschen = new JButton("X");
+		BtnLoeschen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				loeschenSparziel();
+				repaint();
+			}
+		});
+		
 		BtnLoeschen.setBounds(0, 0, 42, 25);
 		this.add(BtnLoeschen);
 		
@@ -50,6 +70,69 @@ public class SparzielPanel extends JPanel {
 		this.add(BtnEinzahlen);
 	}
 	
+		public void loeschenSparziel() {
+			
+			
+			String wert = null;
+			
+			
+			int reply = JOptionPane.showConfirmDialog(
+		            null,
+		            "Möchten Sie das Sparziel wirklich löschen?", 
+		            "Bestätigen",
+		            JOptionPane.YES_NO_OPTION);
+
+		        
+				if(reply == JOptionPane.YES_OPTION){       
+		
+			
+			try{		
+				connect = SparkontoDB.dbCon();
+				
+				
+								
+				String sqlQuery1 = "SELECT Sparziel FROM Sparkonto WHERE ID=" +(this._ID);
+				Statement stm1 = connect.createStatement();
+
+				ResultSet rs = stm1.executeQuery(sqlQuery1);
+				
+
+	            while (rs.next())
+	                wert = rs.toString();
+			
+				
+				String sqlQuery2 = "DELETE FROM Sparkonto WHERE ID=" +(this._ID);
+				PreparedStatement stm2 = connect.prepareStatement(sqlQuery2);
+				stm2.execute();
+				
+											
+				JOptionPane.showMessageDialog(null,"Sparziel entfernt!\n"
+						+ "Der Betrag von: " + wert + "wird auf Ihrem Konto gutgeschrieben!" ); 
+				
+												
+			}		
+				
+			catch(Exception exc){
+				exc.printStackTrace();
+			}
+		        }
+		        
+		      else{
+		    	  JOptionPane.showMessageDialog(null,"Das Sparziel wurde nicht entfernt!");
+		    	  
+		      }
+		}
+		
+		
+		
+		
+		
+}
+			
+			
+			
+		
+	
 			
 	
-}
+
