@@ -123,7 +123,7 @@ public class SparzielPanel extends JPanel {
 				
 
 	            while (rs.next())
-	                wert = rs.toString();
+	                wert = rs.getString("Sparziel");
 			
 				
 				String sqlQuery2 = "DELETE FROM Sparkonto WHERE ID=" +(this._ID);
@@ -132,7 +132,9 @@ public class SparzielPanel extends JPanel {
 				
 											
 				JOptionPane.showMessageDialog(null,"Sparziel entfernt!\n"
-						+ "Der Betrag von: " + wert + "wird auf Ihrem Konto gutgeschrieben!" ); 
+						+ "Der Betrag von: " + wert + " € wird auf Ihrem \n Konto gutgeschrieben!" ); 
+				
+				GlobVariablen.ziele=GlobVariablen.ziele-1;
 				
 												
 			}		

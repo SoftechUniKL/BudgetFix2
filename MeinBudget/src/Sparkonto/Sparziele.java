@@ -41,7 +41,6 @@ import javax.swing.SwingConstants;
 public class Sparziele extends JFrame {
 	
 	
-	
 	Connection connect = null;
 
 	private JPanel contentPane;
@@ -163,9 +162,12 @@ public static void main(String[] args) {
 		});
 		
 		JButton btnNewZiel = new JButton("Neues Sparziel anlegen");
-		btnNewZiel.setBounds(465, 131, 174, 23);
+		btnNewZiel.setBounds(465, 131, 174, 29);
 		btnNewZiel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+		 	if (GlobVariablen.ziele<3){
 				
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
@@ -179,6 +181,10 @@ public static void main(String[] args) {
 					}
 				});
 				
+			}
+				else{
+					JOptionPane.showMessageDialog(null,"Sie haben die maximale Anzahl an Sparzielen erreicht!\nNehmen Sie sich nicht zu viel auf einmal vor!" ); 
+				}
 			}
 		});
 		
@@ -451,8 +457,5 @@ public static void main(String[] args) {
 		
 		
 	}
-		
-	
-
 }
 

@@ -108,11 +108,33 @@ public class SparzielEingabefenster extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				anlegenSparziel();
+				GlobVariablen.ziele = GlobVariablen.ziele+1;
 				
 			}
 		});
 		BtnSparzielAnlegen.setBounds(78, 243, 145, 25);
 		contentPane.add(BtnSparzielAnlegen);
+		
+		JButton BtnNeuKategorie = new JButton("+");
+		BtnNeuKategorie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Kategorien frame = new Kategorien();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+				
+			
+		});
+		BtnNeuKategorie.setBounds(229, 163, 48, 25);
+		contentPane.add(BtnNeuKategorie);
 		
 		TxtKategorie = new JTextField();
 		TxtKategorie.setText("Kategorie");
@@ -205,7 +227,24 @@ public class SparzielEingabefenster extends JFrame {
 	
 	public void anlegenSparziel() {
 		
-		try{		
+		   float num=0;
+		   boolean pruef=false;
+		     
+
+		    try {
+		        num = Float.parseFloat(TxtSparziel.getText());
+		     		    
+		        TxtSparziel.setText(String.valueOf(num));
+		        
+		        pruef = true;
+
+		    } catch (NumberFormatException e) {
+		      pruef=false;
+		    }
+		    
+		    if (pruef== true) {
+		    	
+			try{		
 				String sqlQuery = "INSERT INTO Sparkonto (Name,Kategorie,Sparziel,Eingezahlt) VALUES(?,?,?,?)";
 				PreparedStatement stm = connect.prepareStatement(sqlQuery);
 				stm.setString(1, TxtName.getText());
@@ -222,5 +261,9 @@ public class SparzielEingabefenster extends JFrame {
 	} catch(Exception exc){
 		exc.printStackTrace();
 	}
+}
+		    else{
+		    	 JOptionPane.showConfirmDialog(null, "Bitte geben Sie nur Zahlen als Wert ein!", "naughty", JOptionPane.CANCEL_OPTION);
+		    }
 }
 }

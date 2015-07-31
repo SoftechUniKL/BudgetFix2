@@ -872,7 +872,7 @@ public class Start extends JFrame {
 		setUndecorated(true);
 		setLocationRelativeTo(null);
 
-		// Einnahmen und Ausgaben Tabelle
+		/*// Einnahmen und Ausgaben Tabelle
 		try {
 			String sqlQuery = "SELECT Datum,Bezeichnung,Kategorie,Art,Betrag FROM BenutzerErträge  WHERE (BenutzerID='"
 					+ this.id + "') ";
@@ -927,4 +927,6 @@ public class Start extends JFrame {
 
 		}
 	}//public Start(int id) {
-}//public class Start extends JFrame {
+}//public class Start extends JFrame { */
+	}
+}
