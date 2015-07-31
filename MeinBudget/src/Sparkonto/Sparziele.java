@@ -425,7 +425,14 @@ public static void main(String[] args) {
 				Statement stm = connect.createStatement();
 
 				ResultSet rs = stm.executeQuery(sqlQuery);
-
+				//deletion
+				Component[] components = contentPane.getComponents();
+				for (Component component : components) {
+				    if (component instanceof SparzielPanel) {
+				        contentPane.remove(component);
+				    	
+				    }
+				}
 				int top = 200, left = 400;
 				try {
 					while (rs.next()) {

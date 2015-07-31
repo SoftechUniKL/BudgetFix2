@@ -115,27 +115,6 @@ public class SparzielEingabefenster extends JFrame {
 		BtnSparzielAnlegen.setBounds(78, 243, 145, 25);
 		contentPane.add(BtnSparzielAnlegen);
 		
-		JButton BtnNeuKategorie = new JButton("+");
-		BtnNeuKategorie.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							KategorienFenster frame = new KategorienFenster();
-							frame.setVisible(true);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-			}
-				
-			
-		});
-		BtnNeuKategorie.setBounds(229, 163, 48, 25);
-		contentPane.add(BtnNeuKategorie);
-		
 		TxtKategorie = new JTextField();
 		TxtKategorie.setText("Kategorie");
 		TxtKategorie.setForeground(Color.GRAY);
