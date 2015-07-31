@@ -10,7 +10,7 @@ public class KategorienDB {
 	public static Connection dbCon() {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			String db = "jdbc:sqlite:src/Sparkonto/Kategorien";
+			String db = "jdbc:sqlite:src/Sparkonto/KategorienDB";
 			conn = DriverManager.getConnection(db);
 			System.out.println("---> Verbindung zur Kategorien-Datenbank OK!");
 			return conn;

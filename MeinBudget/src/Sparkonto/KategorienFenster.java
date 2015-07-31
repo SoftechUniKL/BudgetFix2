@@ -106,12 +106,12 @@ public class KategorienFenster extends JFrame {
 		BtnKategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 					
-				try {
-						String sqlQuery = "INSERT INTO KategorienDB (Kategorie) VALUES(?) ";
-							PreparedStatement pst = connect.prepareStatement(sqlQuery);
+				try {						
+							String sqlQuery = "INSERT INTO KategorienDB (Kategorie) VALUES(?)";
+							PreparedStatement stm = connect.prepareStatement(sqlQuery);
+							stm.setString(1, TxtKategorie.getText());
+								
 							
-							
-							pst.setString(1, TxtKategorie.getText());
 							
 														
 						} catch (SQLException e1) {
@@ -164,23 +164,5 @@ public class KategorienFenster extends JFrame {
 	
 	//Anlegen eines Sparziels in der SQL-Tabelle
 	
-	public void einzahlenInSparziel() {
-		
-				int betrag =0;
-		
-		try{	betrag = Integer.parseInt(TxtKategorie.getText());	
-				String sqlQuery = "UPDATE Sparkonto SET Eingezahlt =" +betrag;
-				PreparedStatement stm = connect.prepareStatement(sqlQuery);
-								
-				stm.execute();
-				
-				JOptionPane.showMessageDialog(null,"Sie haben erfolgreich " +betrag+ " € für das Sparziel eingezahlt!"); 
-								
-				dispose();
-				
-				
-	} catch(Exception exc){
-		exc.printStackTrace();
-	}
-}
+	
 }
