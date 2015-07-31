@@ -413,7 +413,7 @@ public static void main(String[] args) {
 	}
 	
 		
-		
+		//Dies ist die Methode zum Auslesen der Sparkonto-Datenbank und der Erstellung der grafischen Darstellung in FOrm von JPanels
 
 		public void Auslesen() {
 			

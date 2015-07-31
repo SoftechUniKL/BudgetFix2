@@ -95,6 +95,8 @@ public class SparzielPanel extends JPanel {
 		this.add(BtnEinzahlen);
 	}
 	
+	//Dies ist die Methode zum Löschen eines Sparziels
+	
 		public void loeschenSparziel() {
 			
 			
@@ -132,7 +134,8 @@ public class SparzielPanel extends JPanel {
 				
 											
 				JOptionPane.showMessageDialog(null,"Sparziel entfernt!\n"
-						+ "Der Betrag von: " + wert + " € wird auf Ihrem \n Konto gutgeschrieben!" ); 
+						+ "Der Betrag von: " + wert + " € wird auf Ihrem \n Konto gutgeschrieben!\n"
+								+ "Klicken Sie auf 'Aktualisieren' um die Änderungen sichtbar zu machen!" ); 
 				
 				GlobVariablen.ziele=GlobVariablen.ziele-1;
 				
