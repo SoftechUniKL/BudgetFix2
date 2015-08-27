@@ -76,6 +76,8 @@ public static void main(String[] args) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 985, 704);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(30, 144, 255));
+		contentPane.setForeground(new Color(0, 0, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -121,14 +123,6 @@ public static void main(String[] args) {
 		txtMenue.setFont(new Font("Tahoma", Font.BOLD, 34));
 		txtMenue.setForeground(Color.WHITE);
 		contentPane.add(txtMenue);
-		
-//Tabelle für Gesamtübersicht		
-		JTable tableGesamt = new JTable();			
-		tableGesamt.setBounds(50, 107, 200, 200);
-		tableGesamt.setForeground(Color.WHITE);
-		tableGesamt.setFont(new Font("Tahoma", Font.BOLD, 11));
-		tableGesamt.setBackground(new Color (27, 109, 220));	
-		contentPane.add(tableGesamt);
 		
 //btnStart		
 		JLabel btnStart = new JLabel();
@@ -399,6 +393,7 @@ public static void main(String[] args) {
 		
 		//Hintergrund		
 				JLabel Hintergrund = new JLabel();
+				Hintergrund.setBackground(new Color(0, 102, 204));
 				Hintergrund.setBounds(0, -52, 985, 807);
 				//Hintergrund.setIcon(new ImageIcon(Start.class.getResource("/Design/GUI4.png")));
 				contentPane.add(Hintergrund);

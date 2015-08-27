@@ -1,4 +1,4 @@
-package Sparkonto;
+package Registrierung;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

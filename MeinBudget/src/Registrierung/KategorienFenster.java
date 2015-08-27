@@ -1,4 +1,4 @@
-package Sparkonto;
+package Registrierung;
 
 
 import java.awt.EventQueue;
@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
-import Registrierung.RegisterFenster;
+import Sparkonto.Sparziele;
 import Anmelden.AnmeldeDatenbank;
 import Anmelden.AnmeldenFenster;
 

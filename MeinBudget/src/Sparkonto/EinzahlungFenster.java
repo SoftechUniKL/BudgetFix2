@@ -27,6 +27,7 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -36,6 +37,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class EinzahlungFenster extends JFrame {
+	
+	
 	
 	Connection connect = null;
 	
@@ -63,6 +66,7 @@ public class EinzahlungFenster extends JFrame {
 	 */
 	public EinzahlungFenster() {
 		
+				
 		connect = SparkontoDB.dbCon();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -152,9 +156,12 @@ public class EinzahlungFenster extends JFrame {
 	
 	public void einzahlenInSparziel() {
 		
-				int betrag =0;
+			int betrag = 0;
 		
-		try{	betrag = Integer.parseInt(TxtEinzahlung.getText());	
+		try{	betrag =  Integer.parseInt(TxtEinzahlung.getText());	
+				
+				
+					
 				String sqlQuery = "UPDATE Sparkonto SET Eingezahlt =" +betrag;
 				PreparedStatement stm = connect.prepareStatement(sqlQuery);
 								

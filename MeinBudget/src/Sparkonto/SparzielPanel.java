@@ -1,5 +1,6 @@
 package Sparkonto;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -35,6 +36,8 @@ public class SparzielPanel extends JPanel {
 	public SparzielPanel(int ID,String name,String kategorie,float sparziel,float eingezahlt,  int top, int left) {
 		this.setBounds(left, top , 658,97);
 		this.setLayout(null);
+		Color colr = new Color(30,144,255);
+		this.setBackground(colr);
 		this._ID=ID;
 		this._name=name;
 		this._kategorie=kategorie;
@@ -100,7 +103,7 @@ public class SparzielPanel extends JPanel {
 		public void loeschenSparziel() {
 			
 			
-			String wert = null;
+			String eingezahlt = null;
 			
 			
 			int reply = JOptionPane.showConfirmDialog(
@@ -118,14 +121,14 @@ public class SparzielPanel extends JPanel {
 				
 				
 								
-				String sqlQuery1 = "SELECT Sparziel FROM Sparkonto WHERE ID=" +(this._ID);
+				String sqlQuery1 = "SELECT Eingezahlt FROM Sparkonto WHERE ID=" +(this._ID);
 				Statement stm1 = connect.createStatement();
 
 				ResultSet rs = stm1.executeQuery(sqlQuery1);
 				
 
 	            while (rs.next())
-	                wert = rs.getString("Sparziel");
+	                eingezahlt = rs.getString("Eingezahlt");
 			
 				
 				String sqlQuery2 = "DELETE FROM Sparkonto WHERE ID=" +(this._ID);
@@ -134,7 +137,7 @@ public class SparzielPanel extends JPanel {
 				
 											
 				JOptionPane.showMessageDialog(null,"Sparziel entfernt!\n"
-						+ "Der Betrag von: " + wert + " € wird auf Ihrem \n Konto gutgeschrieben!\n"
+						+ "Der Betrag von: " + eingezahlt + " € wird auf Ihrem \n Hauptkonto gutgeschrieben!\n"
 								+ "Klicken Sie auf 'Aktualisieren' um die Änderungen sichtbar zu machen!" ); 
 				
 				GlobVariablen.ziele=GlobVariablen.ziele-1;
