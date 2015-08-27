@@ -167,7 +167,8 @@ public class EinzahlungFenster extends JFrame {
 								
 				stm.execute();
 				
-				JOptionPane.showMessageDialog(null,"Sie haben erfolgreich " +betrag+ " € für das Sparziel eingezahlt!"); 
+				JOptionPane.showMessageDialog(null,"Sie haben erfolgreich " +betrag+ " € "
+						+ "für das Sparziel eingezahlt!"); 
 								
 				dispose();
 				

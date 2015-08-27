@@ -33,7 +33,8 @@ public class SparzielPanel extends JPanel {
 		float _eingezahlt;
 		
 	//Konstruktor
-	public SparzielPanel(int ID,String name,String kategorie,float sparziel,float eingezahlt,  int top, int left) {
+	public SparzielPanel(int ID,String name,String kategorie,float sparziel
+			,float eingezahlt,  int top, int left) {
 		this.setBounds(left, top , 658,97);
 		this.setLayout(null);
 		Color colr = new Color(30,144,255);
@@ -137,7 +138,7 @@ public class SparzielPanel extends JPanel {
 				
 											
 				JOptionPane.showMessageDialog(null,"Sparziel entfernt!\n"
-						+ "Der Betrag von: " + eingezahlt + " € wird auf Ihrem \n Hauptkonto gutgeschrieben!\n"
+						+ "Der Betrag von: " + eingezahlt + " € wird auf Ihrem \nHauptkonto gutgeschrieben!\n"
 								+ "Klicken Sie auf 'Aktualisieren' um die Änderungen sichtbar zu machen!" ); 
 				
 				GlobVariablen.ziele=GlobVariablen.ziele-1;

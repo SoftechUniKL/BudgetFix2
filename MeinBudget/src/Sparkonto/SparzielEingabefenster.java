@@ -202,14 +202,13 @@ public class SparzielEingabefenster extends JFrame {
 				setLocationRelativeTo(null);
 	}
 	
-	//Anlegen eines Sparziels in der SQL-Tabelle
+	//Anlegen eines Sparziels in der Sparkonto-Tabelle
 	
 	public void anlegenSparziel() {
 		
 		   float num=0;
 		   boolean pruef=false;
 		     
-
 		    try {
 		        num = Float.parseFloat(TxtSparziel.getText());
 		     		    
@@ -224,7 +223,8 @@ public class SparzielEingabefenster extends JFrame {
 		    if (pruef== true) {
 		    	
 			try{		
-				String sqlQuery = "INSERT INTO Sparkonto (Name,Kategorie,Sparziel,Eingezahlt) VALUES(?,?,?,?)";
+				String sqlQuery = "INSERT INTO Sparkonto (Name,Kategorie,Sparziel,Eingezahlt) "
+						+ "VALUES(?,?,?,?)";
 				PreparedStatement stm = connect.prepareStatement(sqlQuery);
 				stm.setString(1, TxtName.getText());
 				stm.setString(2, TxtKategorie.getText());
@@ -242,7 +242,8 @@ public class SparzielEingabefenster extends JFrame {
 	}
 }
 		    else{
-		    	 JOptionPane.showConfirmDialog(null, "Bitte geben Sie nur Zahlen als Wert ein!", "naughty", JOptionPane.CANCEL_OPTION);
+		    	 JOptionPane.showConfirmDialog(null, "Bitte geben Sie nur Zahlen als Wert ein!"
+		    			 , "Fehler", JOptionPane.CANCEL_OPTION);
 		    }
 }
 }
