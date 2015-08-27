@@ -18,6 +18,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
+import Registrierung.GlobVariablen;
 import Registrierung.RegisterFenster;
 import Anmelden.AnmeldeDatenbank;
 import Anmelden.AnmeldenFenster;

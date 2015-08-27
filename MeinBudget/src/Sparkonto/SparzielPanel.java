@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 
+import Registrierung.GlobVariablen;
+
 
 public class SparzielPanel extends JPanel {
 	

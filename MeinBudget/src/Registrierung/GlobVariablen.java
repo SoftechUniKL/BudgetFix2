@@ -1,4 +1,4 @@
-package Sparkonto;
+package Registrierung;
 
 public class GlobVariablen {
 

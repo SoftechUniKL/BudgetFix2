@@ -31,6 +31,7 @@ import GUI.Einstellungen;
 import GUI.Start;
 import GUI.Tools;
 import GUI.Wiederholung;
+import Registrierung.GlobVariablen;
 import Registrierung.RegisterFenster;
 
 import java.awt.Panel;
